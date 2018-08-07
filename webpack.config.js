@@ -7,5 +7,14 @@ module.exports = {
         path: 'dist',
         filename: 'app.bundle.js'
     },
-    plugins: [new HtmlWebpackPlugin()]
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'Webpack 2',
+            minify:{
+                collapseWhitespace: true
+            },
+            hash:true,
+            template: './src/index.html'
+        })
+    ]
 }
