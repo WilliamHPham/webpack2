@@ -19,13 +19,16 @@ module.exports = {
                     use: ['css-loader', 'sass-loader'],
                     publicPath: '/dist'
                 })
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: 'babel-loader'
             }
         ]
     },
     devServer: {
-        contentBase: path.join(__dirname, "dist"),
-        compress: true,
-        port:9007
+        port:9998
     },
     plugins: [
         new HtmlWebpackPlugin({
