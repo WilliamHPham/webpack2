@@ -19,11 +19,16 @@ module.exports = {
                     use: ['css-loader', 'sass-loader'],
                     publicPath: '/dist'
                 })
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: 'babel-loader'
             }
         ]
     },
     devServer: {
-        port:9999
+        port:9998
     },
     plugins: [
         new HtmlWebpackPlugin({
