@@ -1,5 +1,4 @@
 # ignore the node_modules/bower_components
-node_modules
 .idea
 .vscode
 
