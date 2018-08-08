@@ -3,11 +3,14 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 var path = require("path");
 
 module.exports = {
-    entry: './src/app.js',
+    entry: {
+        app: './src/app.js',
+        contact: './src/contact.js'
+    },
     output:
     {
         path: path.resolve(__dirname, "dist"),
-        filename: 'app.bundle.js'
+        filename: '[name].bundle.js'
     },
     module:
     {
@@ -28,16 +31,24 @@ module.exports = {
         ]
     },
     devServer: {
-        port:9998
+        port:9997
     },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Webpack 2',
-            minify: {
-                collapseWhitespace: true
-            },
+            // minify: {
+            //     collapseWhitespace: true
+            // },
+            excludeChunks: ['contact'], //not include contact.js
             hash: true,
             template: './src/index.html'
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Webpack 2',
+            hash: true,
+            chunks: ['contact'], //include contact.js
+            filename: 'contact.html',
+            template: './src/contact.html'
         }),
         new ExtractTextPlugin({
             filename: 'app.bundle.css',
