@@ -39,6 +39,12 @@ module.exports = {
             hash: true,
             template: './src/index.html'
         }),
+        new HtmlWebpackPlugin({
+            title: 'Contact',
+            hash: true,
+            filename: 'contact.html',
+            template: './src/contact.html'
+        }),
         new ExtractTextPlugin({
             filename: 'app.bundle.css',
             disable: false,
